@@ -1,4 +1,4 @@
-package operators
+package `3operators`
 
 object Main {
 

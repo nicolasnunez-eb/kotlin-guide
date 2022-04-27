@@ -1,4 +1,4 @@
-package operators
+package `3operators`
 
 data class Fraction(var numerator: Int, private val denominator: Int) {
     operator fun times(another: Fraction): Fraction {

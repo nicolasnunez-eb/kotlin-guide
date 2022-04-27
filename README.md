@@ -50,6 +50,8 @@ fun <T> createBox(elem: T): Box<T> {
 ```
 
 ## Operator
+[Kotlin](https://kotlinlang.org/docs/operator-overloading.html)
+
 In kotlin you can redefine classic operators like `+`, `-`, `*` and so on.
 To do that you have to use the `operator` keyword in your methods like so:
 
@@ -74,6 +76,40 @@ println(myFraction * anotherFraction) // --> Will print "1 / 4"
 ```
 
 ## Lambdas
+[Lambdas](https://kotlinlang.org/docs/lambdas.html#instantiating-a-function-type)
+[Destructuring](https://kotlinlang.org/docs/destructuring-declarations.html)
+
+1. Classic lambda: The classic notation (the same as Java) is declaring
+the parameter on the left side of the `->` and then execute the code on the right side.
+Lambas do not need the `return` keyword because a lambda always return something, in case of kotlin
+it will return the type of the last line of the lambda. 
+```kotlin
+val words = listOf("asd", "mqwet", "awesome", "fantastic", "lambda")
+
+println(words.filter { word -> word.length == 3 })
+```
+2. `it` notation: If your lambda has one parameter you can get rid of the classic notation
+and just refer the parameter using the `it` keyword
+```kotlin
+val words = listOf("asd", "mqwet", "awesome", "fantastic", "lambda")
+
+println(words.filter { it.length == 3 })
+```
+3. Multiple parameters: As a lambda is a function you can pass multiple parameters
+```kotlin
+val sum: (a: Int, b: Int) -> Int = { a, b -> a + b }
+
+println(sum(1, 2))
+```
+4. Destructuring: Could be applied on any class that support `componentN` methods. Destructuring not only applies
+for lambdas it can be used when declaring variables
+```kotlin
+data class Dog(val name: String, val legs: Int)
+
+/** You can use whatever name you want when destructuring the object 👇
+ If you want to use `{ (n, l) -> ... }` it's ok it will compile */
+val printDog: (dog: Dog) -> Unit = { (name, legs) -> println("This dog is $name and have $legs legs") }
+```
 ## Operator + Lambdas
 ## Extension functions
 https://kotlinlang.org/docs/extensions.html

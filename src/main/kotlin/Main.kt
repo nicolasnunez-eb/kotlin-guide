@@ -6,7 +6,8 @@ fun printNumbers(n: Int, n2: Int) {
 fun main(args: Array<String>) {
     println("Hello World!")
 //    `2Generics`.Main.main()
-//    operators.Main.main()
+//    `3operators`.Main.main()
+    `4lambdas`.Main.main()
 
 //    // Operator functions
 //    n(10)
