@@ -50,6 +50,29 @@ fun <T> createBox(elem: T): Box<T> {
 ```
 
 ## Operator
+In kotlin you can redefine classic operators like `+`, `-`, `*` and so on.
+To do that you have to use the `operator` keyword in your methods like so:
+
+```kotlin
+data class Fraction(val numerator: Int, val denominator: Int) {
+    operator fun times(another: Fraction): Fraction {
+        return Fraction(numerator * another.numerator, denominator * another.denominator)
+    }
+
+    operator fun unaryMinus(): Fraction {
+        return Fraction(-numerator, denominator)
+    }
+    
+    override fun toString(): String = "$numerator / $denominator"
+}
+
+val myFraction = Fraction(1, 2)
+val anotherFraction = Fraction(1, 2)
+
+println(-myFraction) // --> Will print "-1 / 2"
+println(myFraction * anotherFraction) // --> Will print "1 / 4"
+```
+
 ## Lambdas
 ## Operator + Lambdas
 ## Extension functions
